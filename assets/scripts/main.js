@@ -57,7 +57,9 @@ function initializeServiceWorker() {
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', async function(event) {
       try {
-        const worker = await navigator.serviceWorker.register("./sw.js");
+        const worker = await navigator.serviceWorker.register("./sw.js", {
+          scope: "./",
+        });
         if (worker.active) {
           console.log("Service worker registered");
         }
